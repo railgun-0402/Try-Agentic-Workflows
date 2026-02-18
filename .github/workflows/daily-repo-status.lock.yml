@@ -28,7 +28,7 @@
 #
 # Source: githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"970020bade57e3bad3914642686179ce63e7c7257fc196085f15ebc5e4dbceec"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"7f516114d87b26116dafce8c80c7bfad406e2f5f36d6d708483ab23a8f4e35c3"}
 
 name: "Daily Triage Report"
 "on":
