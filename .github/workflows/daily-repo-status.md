@@ -14,7 +14,6 @@ permissions:
   issues: read
   pull-requests: read
 
-
 network: defaults
 
 tools:
