@@ -28,9 +28,9 @@
 #
 # Source: githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"96b407da2976ffcbd88855e45c11b84c23433c2e084e5a9ed6e620f00cd6575c"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"970020bade57e3bad3914642686179ce63e7c7257fc196085f15ebc5e4dbceec"}
 
-name: "Daily Repo Status"
+name: "Daily Triage Report"
 "on":
   schedule:
   - cron: "33 10 * * *"
@@ -42,7 +42,7 @@ permissions: {}
 concurrency:
   group: "gh-aw-${{ github.workflow }}"
 
-run-name: "Daily Repo Status"
+run-name: "Daily Triage Report"
 
 jobs:
   activation:
@@ -306,7 +306,7 @@ jobs:
               version: "",
               agent_version: "0.101.0",
               cli_version: "v0.46.0",
-              workflow_name: "Daily Repo Status",
+              workflow_name: "Daily Triage Report",
               experimental: false,
               supports_tools_allowlist: true,
               run_id: context.runId,
@@ -364,7 +364,7 @@ jobs:
           cat > /opt/gh-aw/safeoutputs/tools.json << 'GH_AW_SAFE_OUTPUTS_TOOLS_EOF'
           [
             {
-              "description": "Create a new GitHub issue for tracking bugs, feature requests, or tasks. Use this for actionable work items that need assignment, labeling, and status tracking. For reports, announcements, or status updates that don't require task tracking, use create_discussion instead. CONSTRAINTS: Maximum 1 issue(s) can be created. Title will be prefixed with \"[repo-status] \". Labels [report daily-status] will be automatically added.",
+              "description": "Create a new GitHub issue for tracking bugs, feature requests, or tasks. Use this for actionable work items that need assignment, labeling, and status tracking. For reports, announcements, or status updates that don't require task tracking, use create_discussion instead. CONSTRAINTS: Maximum 1 issue(s) can be created. Title will be prefixed with \"[triage] \". Labels [report triage] will be automatically added.",
               "inputSchema": {
                 "additionalProperties": false,
                 "properties": {
@@ -615,7 +615,7 @@ jobs:
           include_only = ["CODEX_API_KEY", "GH_AW_ASSETS_ALLOWED_EXTS", "GH_AW_ASSETS_BRANCH", "GH_AW_ASSETS_MAX_SIZE_KB", "GH_AW_SAFE_OUTPUTS", "GITHUB_PERSONAL_ACCESS_TOKEN", "GITHUB_REPOSITORY", "GITHUB_SERVER_URL", "HOME", "OPENAI_API_KEY", "PATH"]
           
           [mcp_servers.github]
-          user_agent = "daily-repo-status"
+          user_agent = "daily-triage-report"
           startup_timeout_sec = 120
           tool_timeout_sec = 60
           container = "ghcr.io/github/github-mcp-server:v0.30.3"
@@ -847,7 +847,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: 1
-          GH_AW_WORKFLOW_NAME: "Daily Repo Status"
+          GH_AW_WORKFLOW_NAME: "Daily Triage Report"
           GH_AW_WORKFLOW_SOURCE: "githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87"
           GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/githubnext/agentics/tree/d19056381ba48cb1f7c78510c23069701fa7ae87/workflows/daily-repo-status.md"
         with:
@@ -862,7 +862,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Daily Repo Status"
+          GH_AW_WORKFLOW_NAME: "Daily Triage Report"
           GH_AW_WORKFLOW_SOURCE: "githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87"
           GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/githubnext/agentics/tree/d19056381ba48cb1f7c78510c23069701fa7ae87/workflows/daily-repo-status.md"
         with:
@@ -877,7 +877,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Daily Repo Status"
+          GH_AW_WORKFLOW_NAME: "Daily Triage Report"
           GH_AW_WORKFLOW_SOURCE: "githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87"
           GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/githubnext/agentics/tree/d19056381ba48cb1f7c78510c23069701fa7ae87/workflows/daily-repo-status.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -897,7 +897,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "Daily Repo Status"
+          GH_AW_WORKFLOW_NAME: "Daily Triage Report"
           GH_AW_WORKFLOW_SOURCE: "githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87"
           GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/githubnext/agentics/tree/d19056381ba48cb1f7c78510c23069701fa7ae87/workflows/daily-repo-status.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -947,7 +947,7 @@ jobs:
       - name: Setup threat detection
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
-          WORKFLOW_NAME: "Daily Repo Status"
+          WORKFLOW_NAME: "Daily Triage Report"
           WORKFLOW_DESCRIPTION: "This workflow creates daily repo status reports. It gathers recent repository\nactivity (issues, PRs, discussions, releases, code changes) and generates\nengaging GitHub issues with productivity insights, community highlights,\nand project recommendations."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
         with:
@@ -1018,7 +1018,7 @@ jobs:
     env:
       GH_AW_ENGINE_ID: "codex"
       GH_AW_WORKFLOW_ID: "daily-repo-status"
-      GH_AW_WORKFLOW_NAME: "Daily Repo Status"
+      GH_AW_WORKFLOW_NAME: "Daily Triage Report"
       GH_AW_WORKFLOW_SOURCE: "githubnext/agentics/workflows/daily-repo-status.md@d19056381ba48cb1f7c78510c23069701fa7ae87"
       GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/githubnext/agentics/tree/d19056381ba48cb1f7c78510c23069701fa7ae87/workflows/daily-repo-status.md"
     outputs:
@@ -1047,7 +1047,7 @@ jobs:
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           GH_AW_AGENT_OUTPUT: ${{ env.GH_AW_AGENT_OUTPUT }}
-          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_issue\":{\"labels\":[\"report\",\"daily-status\"],\"max\":1,\"title_prefix\":\"[repo-status] \"},\"missing_data\":{},\"missing_tool\":{}}"
+          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_issue\":{\"labels\":[\"report\",\"triage\"],\"max\":1,\"title_prefix\":\"[triage] \"},\"missing_data\":{},\"missing_tool\":{}}"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
