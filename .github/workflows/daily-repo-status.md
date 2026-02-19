@@ -58,11 +58,6 @@ Create a daily triage report for maintainers as a GitHub issue.
 - Stale PRs (no activity for 3+ days), especially ones close to merge
 - Regressions or bugs with clear reproduction steps
 
-### P2 (Nice to have / backlog grooming)
-
-- Low-severity issues, docs improvements, refactors
-- PRs needing minor follow-ups
-
 ## Output format
 
 - Use headings: P0 / P1 / P2
